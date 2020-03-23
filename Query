@@ -1,0 +1,26 @@
+select * from [dbo].[om_check_registrs_may]
+
+--1) Display all data whose objectid between 10 and 45
+select * from [dbo].[om_check_registrs_may] where objectId>='10' and objectId<='45'
+
+--2) Display all description whose first character is p and third character must be L, rest character can be anything
+select * from [dbo].[om_check_registrs_may] where DESCRIPTION like 'p_l%'
+
+--3) Display all description whose second character is a, d, f, r, k
+select * from [dbo].[om_check_registrs_may] where DESCRIPTION like '_[adfrk]%'
+
+--4) Display all description whose forth character should not be r,e, t, v, r
+select * from [dbo].[om_check_registrs_may] where DESCRIPTION like '____[^retvr]'
+
+--5) Display acct_tile start with t and end with g
+select * from [dbo].[om_check_registrs_may] where ACCT_TITLE like 't%g'
+
+--6) Display acct_title start with t and objectid must be greater than 75
+select * from [dbo].[om_check_registrs_may] where ACCT_TITLE like 't%' and ObjectId>'75'
+
+--7) Display check_date 5/7/2019 and 5/31/2019 only
+select * from [dbo].[om_check_registrs_may] where CHECK_DATE in ( '5/7/2019', '5/31/2019')
+
+
+
+
